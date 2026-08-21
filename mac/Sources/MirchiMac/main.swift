@@ -53,6 +53,8 @@ private final class CharmView: NSView {
     override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
 
     override func hitTest(_ point: NSPoint) -> NSView? {
+        // Return nil over transparent canvas pixels so the app underneath still
+        // receives clicks; only the visible charm geometry is interactive.
         isInteractive(point) ? self : nil
     }
 
@@ -578,6 +580,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         panel.backgroundColor = .clear
         panel.isOpaque = false
         panel.hasShadow = false
+        // A non-activating floating panel keeps the charm visible across Spaces
+        // without stealing keyboard focus from the user's current app.
         panel.level = .floating
         panel.isFloatingPanel = true
         panel.hidesOnDeactivate = false

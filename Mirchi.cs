@@ -134,6 +134,8 @@ namespace Mirchi
             get
             {
                 CreateParams cp = base.CreateParams;
+                // A layered tool window provides per-pixel transparency without taking
+                // focus away from whichever desktop app the user is working in.
                 cp.ExStyle |= Native.WS_EX_LAYERED | Native.WS_EX_TOOLWINDOW | Native.WS_EX_NOACTIVATE;
                 return cp;
             }
@@ -151,6 +153,8 @@ namespace Mirchi
                 long packed = m.LParam.ToInt64();
                 Point screenPoint = new Point((short)(packed & 0xffff), (short)((packed >> 16) & 0xffff));
                 Point localPoint = PointToClient(screenPoint);
+                // Only visible charm geometry captures input; transparent canvas pixels
+                // pass clicks through to the window underneath.
                 m.Result = (IntPtr)(IsInteractivePoint(localPoint) ? Native.HTCLIENT : Native.HTTRANSPARENT);
                 return;
             }
@@ -1046,6 +1050,8 @@ namespace Mirchi
 
         private void Present(Bitmap bitmap)
         {
+            // UpdateLayeredWindow is the small native boundary that preserves the
+            // bitmap's per-pixel alpha. Every GDI handle acquired here is released below.
             IntPtr screenDc = Native.GetDC(IntPtr.Zero);
             IntPtr memoryDc = Native.CreateCompatibleDC(screenDc);
             IntPtr hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));
@@ -1075,6 +1081,7 @@ namespace Mirchi
 
     internal static class Native
     {
+        // Interop is intentionally limited to layered-window drawing, hit testing, and DPI.
         internal const int WS_EX_LAYERED = 0x00080000;
         internal const int WS_EX_TOOLWINDOW = 0x00000080;
         internal const int WS_EX_NOACTIVATE = 0x08000000;

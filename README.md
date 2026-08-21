@@ -7,9 +7,13 @@ A tiny, playful, privacy-first desktop charm inspired by the Indian nimbu-mirchi
 - **Windows:** build-verified and smoke-tested. No .NET SDK or package install is required on standard 64-bit Windows installations with .NET Framework 4.x.
 - **macOS 13+:** native AppKit source is included in [`mac`](mac/), but it has not yet been compiled or tested on a Mac.
 
-## Run on Windows
+## Quick start on Windows
 
-Double-click `run.cmd`. The first run builds `Mirchi.exe`; later you can launch the `.exe` directly. Build again at any time with `build.cmd`.
+1. Download or clone this repository.
+2. Double-click `run.cmd`.
+3. Right-click the charm and choose **Quit** when you are done.
+
+The first run builds `Mirchi.exe` beside the source. Later you can launch the `.exe` directly. Run `build.cmd` whenever you want to rebuild it.
 
 The build uses the 64-bit .NET Framework C# compiler included with Windows:
 
@@ -18,6 +22,8 @@ build.cmd
 ```
 
 For macOS build instructions, see [`mac/README.md`](mac/README.md).
+
+Mirchi currently ships as source rather than a signed installer. It does not add itself to startup or install files elsewhere. To uninstall it, quit the app and delete the folder.
 
 ## Play
 
@@ -40,3 +46,7 @@ For macOS build instructions, see [`mac/README.md`](mac/README.md).
 ## Privacy
 
 Mirchi is local and deliberately has no networking, storage, telemetry, clipboard, camera, microphone, shell, startup, or background-service code. It only uses native drawing, pointer input, a timer for the pendulum, and the primary screen size for its initial placement. It does not save its position or settings.
+
+## License
+
+Mirchi is available under the [MIT License](LICENSE).

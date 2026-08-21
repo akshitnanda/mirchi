@@ -15,6 +15,8 @@ open Mirchi.app
 
 Or run `./run.sh` to build on first launch.
 
+The build creates `Mirchi.app` inside this directory. Mirchi is not currently code-signed or notarized, and this macOS source has not yet been compile-tested on a Mac.
+
 ## Controls
 
 - Drag the top loop to reposition the hook.
@@ -27,3 +29,7 @@ Or run `./run.sh` to build on first launch.
 ## Privacy
 
 The app has no network, file-storage, telemetry, clipboard, camera, microphone, contacts, location, accessibility, input-monitoring, or background-service code. Its property list requests no protected capabilities or entitlements. It reads only its own window's pointer events and the main screen bounds required for initial placement.
+
+## Remove
+
+Choose **Quit** from the right-click menu, then delete `Mirchi.app` or the repository folder. The app does not install a login item, helper, or settings file.
