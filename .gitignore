@@ -1,0 +1,13 @@
+# Windows build output
+/Mirchi.exe
+*.pdb
+
+# Swift Package Manager and macOS build output
+/mac/.build/
+/mac/Mirchi.app/
+.DS_Store
+
+# Local IDE state
+.vs/
+*.suo
+*.user
