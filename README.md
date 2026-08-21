@@ -7,7 +7,7 @@ A tiny, playful, privacy-first desktop charm inspired by the Indian nimbu-mirchi
 ## Platform status
 
 - **Windows:** build-verified and smoke-tested. No .NET SDK or package install is required on standard 64-bit Windows installations with .NET Framework 4.x.
-- **Experimental macOS 13+:** native AppKit source is included in [`mac`](mac/). Automated macOS compilation is configured, but interactive testing on a Mac is still outstanding.
+- **Experimental macOS 13+:** native AppKit source is included in [`mac`](mac/) and is build-verified in GitHub Actions. Interactive and visual testing on a Mac is still outstanding.
 
 ## Quick start on Windows
 

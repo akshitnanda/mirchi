@@ -2,7 +2,7 @@
 
 Native AppKit version of the Mirchi overlay for macOS 13 or newer. It contains the same six charm designs, flexible-chain swing, elastic bottom pull, snap-back, repositionable hook, and local-only privacy model as the Windows version.
 
-Automated compilation and bundle validation run on GitHub's macOS runner. Manual interaction and visual parity testing on Mac hardware are still outstanding.
+The current source compiles and passes bundle validation on GitHub's macOS runner. Manual interaction and visual parity testing on Mac hardware are still outstanding.
 
 ## Build
 
