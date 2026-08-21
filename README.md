@@ -1,11 +1,13 @@
 # Mirchi
 
+[![Build](https://github.com/akshitnanda/mirchi/actions/workflows/build.yml/badge.svg)](https://github.com/akshitnanda/mirchi/actions/workflows/build.yml)
+
 A tiny, playful, privacy-first desktop charm inspired by the Indian nimbu-mirchi tradition. Mirchi is drawn entirely with native vector graphics and stays local to your computer.
 
 ## Platform status
 
 - **Windows:** build-verified and smoke-tested. No .NET SDK or package install is required on standard 64-bit Windows installations with .NET Framework 4.x.
-- **macOS 13+:** native AppKit source is included in [`mac`](mac/), but it has not yet been compiled or tested on a Mac.
+- **Experimental macOS 13+:** native AppKit source is included in [`mac`](mac/). Automated macOS compilation is configured, but interactive testing on a Mac is still outstanding.
 
 ## Quick start on Windows
 
@@ -21,9 +23,19 @@ The build uses the 64-bit .NET Framework C# compiler included with Windows:
 build.cmd
 ```
 
+Contributors with a .NET SDK can use the project build instead:
+
+```powershell
+dotnet build Mirchi.csproj --configuration Release
+```
+
 For macOS build instructions, see [`mac/README.md`](mac/README.md).
 
 Mirchi currently ships as source rather than a signed installer. It does not add itself to startup or install files elsewhere. To uninstall it, quit the app and delete the folder.
+
+## Automated builds
+
+GitHub Actions builds both platform implementations on every pull request and every push to `main`. Successful runs provide an unsigned Windows executable and an unsigned macOS app bundle as workflow artifacts. These artifacts are for testing; Mirchi does not currently publish signed releases.
 
 ## Play
 

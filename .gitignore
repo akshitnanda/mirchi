@@ -1,6 +1,8 @@
 # Windows build output
 /Mirchi.exe
 *.pdb
+**/bin/
+**/obj/
 
 # Swift Package Manager and macOS build output
 /mac/.build/
