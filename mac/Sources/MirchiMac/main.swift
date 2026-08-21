@@ -587,7 +587,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         panel.hidesOnDeactivate = false
         panel.becomesKeyOnlyIfNeeded = true
         panel.isReleasedWhenClosed = false
-        panel.restorable = false
+        panel.isRestorable = false
         panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         panel.contentView = CharmView(frame: NSRect(origin: .zero, size: size))
         panel.orderFrontRegardless()
@@ -598,6 +598,6 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 let application = NSApplication.shared
-let delegate = AppDelegate()
+private let delegate = AppDelegate()
 application.delegate = delegate
 application.run()
